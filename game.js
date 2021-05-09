@@ -20,6 +20,9 @@ $(document).keypress(function(){
   }
 });
 
+
+
+
 //detect when any of the buttons are clicked and trigger a handler function
 $(".btn").click(function() {
   var userChosenColour = $(this).attr("id");
@@ -34,30 +37,34 @@ $(".btn").click(function() {
 
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-    console.log("sucess");
+    //console.log("sucess");
     if(userClickedPattern.length === gamePattern.length) {
       setTimeout(function() {
         nextSequence();
       }, 1000);
     }
   }else {
-    console.log("wrong");
+    //console.log("wrong");
     playSound("wrong");
     playSound("wrong2");
     $("body").addClass("game-over");
     setTimeout(function(){
         $("body").removeClass("game-over");
+
     }, 200);
     $("#level-title").text("Trump Over, press any Key to Restart the Game");
     startOver();
+
   };
 }
 //generate a new random number between 0 and 3, and store it in a variable called randomNumber
 function nextSequence() {
   userClickedPattern = [];
   level++;
+  $("#title").addClass("hidden");
+  $("#welcome").addClass("hidden");
   $("#level-title").text("Level " + level);
-  var randomNumber = Math.floor(Math.random() * 3) + 1;
+  var randomNumber = Math.floor(Math.random() * 4);
   //select a random colour from the buttonColours array
   var randomChosenColour = buttonColours[randomNumber];
   //randomChosenColour generated in step 4 to the end of the gamePattern
@@ -84,4 +91,7 @@ function startOver() {
   level = 0;
   gamePattern = [];
   started = false;
+  $("#title").removeClass("hidden");
+  $("#welcome").removeClass("hidden");
+
 };
