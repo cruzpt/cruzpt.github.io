@@ -25,6 +25,18 @@ body {
   margin: 10px;
 }
 
+#seal{
+  float:center;
+  width:300px;
+  height:300px;"
+}
+
+.sealbig{
+  float:center;
+  width:550px;
+  height:550px;"
+}
+
 .hidden {
   display: none;
 }
@@ -35,6 +47,20 @@ body {
   margin: auto;
 
 }
+
+.btnmob {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  margin:  auto;
+  color: #FEF2BF;
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 20%;
+  background-color: orange;
+}
+
 
 .btn {
   margin: 25px;
